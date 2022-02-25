@@ -1,18 +1,21 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import { GlobalStyles } from './styles/globalStyles'
+import { ErrorBoundary } from './components/ErrorBoundary'
 import { ThemeProvider } from 'styled-components'
+import { GlobalStyles } from './styles/globalStyles'
 import { light } from './styles/theme/light'
 
-import App from './App'
+import Home from './pages/Home'
 
 ReactDOM.render(
     <React.StrictMode>
-        <ThemeProvider theme={light}>
-            <GlobalStyles />
-        </ThemeProvider>
-        <App />
+        <ErrorBoundary>
+            <ThemeProvider theme={light}>
+                <GlobalStyles />
+                <Home />
+            </ThemeProvider>
+        </ErrorBoundary>
     </React.StrictMode>,
     document.getElementById('root')
 )
